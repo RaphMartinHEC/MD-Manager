@@ -1,6 +1,6 @@
 # Installation
 
-## 1. Installation des paquets
+## 1. Installation des paquets (si nécessaire)
 
 ```bash
 sudo dnf update -y
@@ -33,10 +33,11 @@ sudo restorecon -Rv /var/www/html/files
 
 ---
 
-## 4. Firewall (Si pas déjà fait)
+## 4. Firewall (si nécessaire)
 
 ```bash
 sudo firewall-cmd --permanent --add-service=http
 sudo firewall-cmd --permanent --add-service=https
 sudo firewall-cmd --reload
 ```
+
