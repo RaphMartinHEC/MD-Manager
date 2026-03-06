@@ -14,7 +14,7 @@ systemctl enable --now httpd
 
 ```bash
 git clone https://github.com/RaphMartinHEC/MD-Manager.git
-mv ./MD-Manager/var/www/html/mdmanager /var/www/html
+mv ./MD-Manager/mdmanager /var/www/html
 mkdir -p /var/www/html/mdmanager/files
 chown -R apache:apache /var/www/html
 find /var/www/html -type f -exec chmod 644 {} \;
@@ -42,6 +42,7 @@ firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
 ```
+
 
 
 
