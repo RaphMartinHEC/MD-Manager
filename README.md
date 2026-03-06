@@ -1,11 +1,11 @@
 # Installation
 
-## 1. Installation des paquets (si nécessaire)
+## 1. Installation des paquets
 
 ```bash
-sudo dnf update -y
-sudo dnf install -y httpd php php-mbstring php-common php-gd
-sudo systemctl enable --now httpd
+dnf update -y
+dnf install -y httpd php php-mbstring php-common php-gd
+systemctl enable --now httpd
 ```
 
 ---
@@ -15,8 +15,8 @@ sudo systemctl enable --now httpd
 Après la copie des fichiers :
 
 ```bash
-sudo chown -R apache:apache /var/www/html
-sudo chmod -R 775 /var/www/html/files
+chown -R apache:apache /var/www/html
+chmod -R 775 /var/www/html/mdmanager/files
 find /var/www/html -type f -exec sudo chmod 644 {} \;
 find /var/www/html -type d -exec sudo chmod 755 {} \;
 ```
@@ -26,18 +26,16 @@ find /var/www/html -type d -exec sudo chmod 755 {} \;
 ## 3. SELinux
 
 ```bash
-sudo chcon -t httpd_sys_rw_content_t /var/www/html/files -R
-sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html/files(/.*)?"
-sudo restorecon -Rv /var/www/html/files
+chcon -t httpd_sys_rw_content_t /var/www/html/mdmanager/files -R
+restorecon -Rv /var/www/html/mdmanager/files
 ```
 
 ---
 
-## 4. Firewall (si nécessaire)
+## 4. Firewall (Si pas déjà fait)
 
 ```bash
-sudo firewall-cmd --permanent --add-service=http
-sudo firewall-cmd --permanent --add-service=https
-sudo firewall-cmd --reload
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload
 ```
-
