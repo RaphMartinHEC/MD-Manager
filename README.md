@@ -4,7 +4,7 @@
 
 ```bash
 dnf update -y
-dnf install -y httpd php php-mbstring php-common php-gd
+dnf install -y httpd git php php-mbstring php-common php-gd
 systemctl enable --now httpd
 ```
 
@@ -14,11 +14,7 @@ systemctl enable --now httpd
 
 ```bash
 mkdir -p /var/www/html/mdmanager/files
-```
-
-Après la copie des fichiers :
-
-```bash
+git clone https://github.com/RaphMartinHEC/MD-Manager.git
 chown -R apache:apache /var/www/html
 chmod -R 775 /var/www/html/mdmanager/files
 find /var/www/html -type f -exec sudo chmod 644 {} \;
@@ -43,4 +39,5 @@ firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
 ```
+
 
