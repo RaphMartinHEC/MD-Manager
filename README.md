@@ -10,7 +10,7 @@ systemctl enable --now httpd
 
 ---
 
-## 2. Création des dossiers et permissions
+## 2. Téléchargement des fichiers et permissions
 
 ```bash
 mkdir -p /var/www/html/mdmanager/files
@@ -39,5 +39,6 @@ firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
 ```
+
 
 
