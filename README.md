@@ -25,7 +25,7 @@ rm -rf ./MD-Manager
 
 ---
 
-## 3. SELinux
+## 3. SELinux (Si actif)
 
 ```bash
 restorecon -Rv /var/www/html/mdmanager
@@ -42,6 +42,7 @@ firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
 ```
+
 
 
 
